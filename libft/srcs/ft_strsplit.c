@@ -6,13 +6,13 @@
 /*   By: kfalia-f <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/11/24 16:26:01 by kfalia-f          #+#    #+#             */
-/*   Updated: 2018/11/25 18:48:25 by kfalia-f         ###   ########.fr       */
+/*   Updated: 2018/11/27 19:21:24 by kfalia-f         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <stdlib.h>
 
-int		ft_strlen(const char *s, int i, char c)
+int		ft_strlen2(const char *s, int i, char c)
 {
 	while (s[i] != c && s[i] != '\0')
 		i++;
@@ -57,7 +57,7 @@ char	**ft_strsplit(char const *s, char c)
 	while (s[i] != '\0' && j < m)
 	{
 		k = 0;
-		a[j] = (char *)malloc(sizeof(char) * ft_strlen(s, i, c));
+		a[j] = (char *)malloc(sizeof(char) * ft_strlen2(s, i, c));
 		while (s[i] != c && s[i] != '\0')
 			a[j][k++] = s[i++];
 		a[j][k] = '\0';
