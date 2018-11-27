@@ -1,39 +1,42 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_atoi.c                                          :+:      :+:    :+:   */
+/*   ft_strlcat.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: kfalia-f <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2018/11/27 16:22:00 by kfalia-f          #+#    #+#             */
-/*   Updated: 2018/11/27 17:41:54 by kfalia-f         ###   ########.fr       */
+/*   Created: 2018/11/27 15:40:49 by kfalia-f          #+#    #+#             */
+/*   Updated: 2018/11/27 17:33:17 by kfalia-f         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-int		ft_atoi(char *str)
+#include <stdlib.h>
+
+int		ft_strlen(const char *s)
 {
-	int res;
 	int i;
 
 	i = 0;
-	res = 0;
-	while ((*str == ' ') || (*str == '\t'))
-		str++;
-	if (*str == '-')
+	while (s[i] != '\0')
+		i++;
+	return (i);
+}
+
+size_t	ft_strlcat(char *dst, const char *src, size_t size)
+{
+	size_t	i;
+	size_t	s1_end;
+
+	i = 0;
+	while (dst[i] && i < size)
+		i++;
+	s1_end = i;
+	while (src[i - s1_end] && i < size - 1)
 	{
-		str++;
-		i = 1;
+		dst[i] = src[i - s1_end];
+		i++;
 	}
-	if (*str == '+')
-		str++;
-	while (*str)
-	{
-		if ((*str < '0') || (*str > '9'))
-			break ;
-		res = res * 10 + (*str - '0');
-		str++;
-	}
-	if (i == 1)
-		res = res * -1;
-	return (res);
+	if (s1_end < size)
+		dst[i] = '\0';
+	return (s1_end + ft_strlen(src));
 }

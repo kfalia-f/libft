@@ -1,21 +1,27 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strlen.c                                        :+:      :+:    :+:   */
+/*   ft_putendl_fd.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: kfalia-f <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2018/10/23 19:57:40 by kfalia-f          #+#    #+#             */
-/*   Updated: 2018/11/25 18:52:18 by kfalia-f         ###   ########.fr       */
+/*   Created: 2018/11/25 15:31:38 by kfalia-f          #+#    #+#             */
+/*   Updated: 2018/11/25 15:31:59 by kfalia-f         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-int		ft_strlen(char *str)
-{
-	int k;
+#include <unistd.h>
 
-	k = 0;
-	while (str[k] != '\0')
-		k++;
-	return (k);
+void	ft_putendl_fd(char const *s, int fd)
+{
+	int i;
+
+	i = 0;
+	while (s[i] != '\0')
+	{
+		write(fd, &s[i], 1);
+		i++;
+	}
+	write(fd, &s[i], 1);
+	write(fd, "\n", 1);
 }

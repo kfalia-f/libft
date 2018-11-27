@@ -5,12 +5,17 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: kfalia-f <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2018/10/22 16:28:48 by kfalia-f          #+#    #+#             */
-/*   Updated: 2018/10/23 18:21:25 by kfalia-f         ###   ########.fr       */
+/*   Created: 2018/11/25 15:24:02 by kfalia-f          #+#    #+#             */
+/*   Updated: 2018/11/25 15:27:05 by kfalia-f         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-void	ft_putchar(char c);
+#include <unistd.h>
+
+void	ft_putchar(char c)
+{
+	write(1, &c, 1);
+}
 
 void	ft_putnbr(int nb)
 {

@@ -1,21 +1,28 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strlen.c                                        :+:      :+:    :+:   */
+/*   ft_strnequ.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: kfalia-f <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2018/10/23 19:57:40 by kfalia-f          #+#    #+#             */
-/*   Updated: 2018/11/25 18:52:18 by kfalia-f         ###   ########.fr       */
+/*   Created: 2018/11/21 16:10:19 by kfalia-f          #+#    #+#             */
+/*   Updated: 2018/11/27 17:37:01 by kfalia-f         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-int		ft_strlen(char *str)
-{
-	int k;
+#include <stdlib.h>
 
-	k = 0;
-	while (str[k] != '\0')
-		k++;
-	return (k);
+int		ft_strnequ(char const *s1, char const *s2, size_t n)
+{
+	int i;
+
+	i = 0;
+	while ((s1[i] != '\0' || s2[i] != '\0') && n != 0)
+	{
+		if (s1[i] != s2[i])
+			return (0);
+		i++;
+		n--;
+	}
+	return (1);
 }

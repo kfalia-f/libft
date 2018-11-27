@@ -1,21 +1,28 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strlen.c                                        :+:      :+:    :+:   */
+/*   ft_strnew.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: kfalia-f <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2018/10/23 19:57:40 by kfalia-f          #+#    #+#             */
-/*   Updated: 2018/11/25 18:52:18 by kfalia-f         ###   ########.fr       */
+/*   Created: 2018/11/21 13:49:52 by kfalia-f          #+#    #+#             */
+/*   Updated: 2018/11/21 13:53:25 by kfalia-f         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-int		ft_strlen(char *str)
-{
-	int k;
+#include <stdlib.h>
 
-	k = 0;
-	while (str[k] != '\0')
-		k++;
-	return (k);
+char	*ft_strnew(size_t size)
+{
+	char	*a;
+
+	if (!size)
+		return (NULL);
+	a = (char *)malloc(sizeof(char) * size);
+	while (size != 0)
+	{
+		*a++ = '\0';
+		size--;
+	}
+	return (a);
 }

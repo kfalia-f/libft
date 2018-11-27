@@ -1,21 +1,33 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strlen.c                                        :+:      :+:    :+:   */
+/*   ft_strstr.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: kfalia-f <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2018/10/23 19:57:40 by kfalia-f          #+#    #+#             */
-/*   Updated: 2018/11/25 18:52:18 by kfalia-f         ###   ########.fr       */
+/*   Created: 2018/11/27 16:09:29 by kfalia-f          #+#    #+#             */
+/*   Updated: 2018/11/27 16:09:53 by kfalia-f         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-int		ft_strlen(char *str)
+char		*ft_strstr(char *str, char *to_find)
 {
+	int	i;
+	int	j;
 	int k;
 
-	k = 0;
-	while (str[k] != '\0')
-		k++;
-	return (k);
+	i = 0;
+	j = 0;
+	while ((str[i] != to_find[0]) && (str[i] != '\0'))
+		i++;
+	k = i;
+	while ((str[i] == to_find[j]) && (str[i] != '\0'))
+	{
+		j++;
+		i++;
+	}
+	if (to_find[j] == '\0')
+		return (&str[k]);
+	else
+		return (0);
 }

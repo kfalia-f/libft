@@ -1,26 +1,47 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_putstr.c                                        :+:      :+:    :+:   */
+/*   ft_strcat.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: kfalia-f <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2018/11/25 15:16:38 by kfalia-f          #+#    #+#             */
-/*   Updated: 2018/11/25 15:19:37 by kfalia-f         ###   ########.fr       */
+/*   Created: 2018/11/27 14:54:20 by kfalia-f          #+#    #+#             */
+/*   Updated: 2018/11/27 15:19:39 by kfalia-f         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <unistd.h>
+#include <stdlib.h>
 
-void	ft_putstr(char const *s)
+int		ft_strlen(const char *s)
 {
 	int i;
 
 	i = 0;
 	while (s[i] != '\0')
+		i++;
+	if (i == 0)
+		return (i);
+	return (i - 1);
+}
+
+char	*ft_strcat(char *dst, const char *app)
+{
+	int		i;
+	int		k;
+	char	*s;
+
+	i = 0;
+	k = 0;
+	if (!app && !dst)
+		return (NULL);
+	s = (char *)malloc(sizeof(char) * (ft_strlen(dst) + ft_strlen(app)));
+	while (dst[i] != '\0')
 	{
-		write(1, &s[i], 1);
+		s[i] = dst[i];
 		i++;
 	}
-	write(1, &s[i], 1);
+	while (app[k] != '\0')
+		s[i++] = app[k++];
+	s[i] = '\0';
+	return (s);
 }

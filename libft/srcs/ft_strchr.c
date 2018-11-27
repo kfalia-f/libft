@@ -1,21 +1,27 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strlen.c                                        :+:      :+:    :+:   */
+/*   ft_strchr.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: kfalia-f <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2018/10/23 19:57:40 by kfalia-f          #+#    #+#             */
-/*   Updated: 2018/11/25 18:52:18 by kfalia-f         ###   ########.fr       */
+/*   Created: 2018/11/27 15:53:25 by kfalia-f          #+#    #+#             */
+/*   Updated: 2018/11/27 15:59:50 by kfalia-f         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-int		ft_strlen(char *str)
-{
-	int k;
+#include <stdlib.h>
 
-	k = 0;
-	while (str[k] != '\0')
-		k++;
-	return (k);
+char	*ft_strchr(const char *str, int ch)
+{
+	char	*s;
+
+	s = (char*)str;
+	while (*s != ch)
+	{
+		if (*s == '\0')
+			return (NULL);
+		s++;
+	}
+	return (s);
 }

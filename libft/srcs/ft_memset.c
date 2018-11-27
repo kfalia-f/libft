@@ -1,21 +1,26 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strlen.c                                        :+:      :+:    :+:   */
+/*   ft_memset.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: kfalia-f <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2018/10/23 19:57:40 by kfalia-f          #+#    #+#             */
-/*   Updated: 2018/11/25 18:52:18 by kfalia-f         ###   ########.fr       */
+/*   Created: 2018/11/25 18:56:26 by kfalia-f          #+#    #+#             */
+/*   Updated: 2018/11/27 17:32:28 by kfalia-f         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-int		ft_strlen(char *str)
-{
-	int k;
+#include <stdlib.h>
 
-	k = 0;
-	while (str[k] != '\0')
-		k++;
-	return (k);
+void	*ft_memset(void *b, int c, size_t len)
+{
+	char *a;
+
+	a = (char*)b;
+	while (len != 0)
+	{
+		*a++ = (char)c;
+		len--;
+	}
+	return (b);
 }

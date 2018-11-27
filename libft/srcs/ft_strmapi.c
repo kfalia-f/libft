@@ -1,39 +1,42 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_atoi.c                                          :+:      :+:    :+:   */
+/*   ft_strmapi-n.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: kfalia-f <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2018/11/27 16:22:00 by kfalia-f          #+#    #+#             */
-/*   Updated: 2018/11/27 17:41:54 by kfalia-f         ###   ########.fr       */
+/*   Created: 2018/11/25 17:25:58 by kfalia-f          #+#    #+#             */
+/*   Updated: 2018/11/25 17:35:35 by kfalia-f         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-int		ft_atoi(char *str)
+#include <stdlib.h>
+
+int		ft_strlen(char const *s)
 {
-	int res;
 	int i;
 
 	i = 0;
-	res = 0;
-	while ((*str == ' ') || (*str == '\t'))
-		str++;
-	if (*str == '-')
+	while (s[i] != '\0')
+		i++;
+	return (i);
+}
+
+char	*ft_strmapi(char const *s, char (*f)(unsigned int, char))
+{
+	char			*s1;
+	unsigned int	i;
+
+	if (!s)
+		return (NULL);
+	if ((s1 = (char *)malloc(sizeof(char) * ft_strlen(s))) == NULL)
+		return (NULL);
+	i = 0;
+	while (s[i] != '\0')
 	{
-		str++;
-		i = 1;
+		s1[i] = f(i, s[i]);
+		i++;
 	}
-	if (*str == '+')
-		str++;
-	while (*str)
-	{
-		if ((*str < '0') || (*str > '9'))
-			break ;
-		res = res * 10 + (*str - '0');
-		str++;
-	}
-	if (i == 1)
-		res = res * -1;
-	return (res);
+	s1[i] = '\0';
+	return (s1);
 }

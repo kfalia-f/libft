@@ -1,21 +1,39 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strlen.c                                        :+:      :+:    :+:   */
+/*   ft_strncat.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: kfalia-f <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2018/10/23 19:57:40 by kfalia-f          #+#    #+#             */
-/*   Updated: 2018/11/25 18:52:18 by kfalia-f         ###   ########.fr       */
+/*   Created: 2018/11/27 15:23:20 by kfalia-f          #+#    #+#             */
+/*   Updated: 2018/11/27 15:35:51 by kfalia-f         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-int		ft_strlen(char *str)
-{
-	int k;
+#include <stdlib.h>
 
+char	*ft_strncat(char *dst, const char *app, size_t n)
+{
+	char	*s;
+	int		i;
+	int		k;
+
+	i = 0;
 	k = 0;
-	while (str[k] != '\0')
-		k++;
-	return (k);
+	if (n == 0 || (!dst && !app))
+		return (NULL);
+	s = (char *)malloc(sizeof(char) * n);
+	while (dst[i] != '\0' && n > 0)
+	{
+		s[i] = dst[i];
+		i++;
+		n--;
+	}
+	while (app[k] != '\0' && n > 0)
+	{
+		s[i++] = app[k++];
+		n--;
+	}
+	s[i] = '\0';
+	return (s);
 }

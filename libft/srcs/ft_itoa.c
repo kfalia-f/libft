@@ -1,39 +1,40 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_atoi.c                                          :+:      :+:    :+:   */
+/*   ft_itoa.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: kfalia-f <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2018/11/27 16:22:00 by kfalia-f          #+#    #+#             */
-/*   Updated: 2018/11/27 17:41:54 by kfalia-f         ###   ########.fr       */
+/*   Created: 2018/11/25 15:38:16 by kfalia-f          #+#    #+#             */
+/*   Updated: 2018/11/25 17:05:24 by kfalia-f         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-int		ft_atoi(char *str)
+#include <stdlib.h>
+
+char	*ft_itoa(int n)
 {
-	int res;
-	int i;
+	char	s[11];
+	char	*res;
+	int		neg;
+	int		i;
+	int		j;
 
 	i = 0;
-	res = 0;
-	while ((*str == ' ') || (*str == '\t'))
-		str++;
-	if (*str == '-')
+	j = 0;
+	neg = n < 0 ? -1 : 1;
+	while (neg * n > 9 || neg * n < 0)
 	{
-		str++;
-		i = 1;
+		s[i++] = '0' + neg * (n % 10);
+		n = n / 10;
 	}
-	if (*str == '+')
-		str++;
-	while (*str)
-	{
-		if ((*str < '0') || (*str > '9'))
-			break ;
-		res = res * 10 + (*str - '0');
-		str++;
-	}
-	if (i == 1)
-		res = res * -1;
+	s[i++] = '0' + neg * n;
+	if (neg < 0)
+		s[i++] = '-';
+	if ((res = (char *)malloc(sizeof(char) * i)) == NULL)
+		return (NULL);
+	res[i] = '\0';
+	while (i--)
+		res[i] = s[j++];
 	return (res);
 }
