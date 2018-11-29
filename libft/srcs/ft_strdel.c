@@ -6,7 +6,7 @@
 /*   By: kfalia-f <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/11/21 13:54:10 by kfalia-f          #+#    #+#             */
-/*   Updated: 2018/11/21 13:57:10 by kfalia-f         ###   ########.fr       */
+/*   Updated: 2018/11/28 19:28:25 by kfalia-f         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,13 +14,9 @@
 
 void	ft_strdel(char **as)
 {
-	int i;
-
-	i = 0;
-	while (as[i])
+	if (as != NULL)
 	{
-		free(as[i]);
-		as[i] = NULL;
-		i++;
+		free(*as);
+		*as = NULL;
 	}
 }

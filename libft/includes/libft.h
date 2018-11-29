@@ -6,7 +6,7 @@
 /*   By: kfalia-f <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/11/27 17:40:41 by kfalia-f          #+#    #+#             */
-/*   Updated: 2018/11/27 19:14:50 by kfalia-f         ###   ########.fr       */
+/*   Updated: 2018/11/29 16:08:03 by kfalia-f         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,7 @@
 
 #include <stdlib.h>
 
-int		ft_atoi(char *str);
+int		ft_atoi(const char *str);
 void	ft_bzero(void *s, size_t n);
 int		ft_isalnum(int ch);
 int		ft_isalpha(int ch);

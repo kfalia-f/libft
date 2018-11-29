@@ -6,13 +6,13 @@
 /*   By: kfalia-f <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/11/25 15:14:17 by kfalia-f          #+#    #+#             */
-/*   Updated: 2018/11/25 15:16:16 by kfalia-f         ###   ########.fr       */
+/*   Updated: 2018/11/29 15:38:04 by kfalia-f         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <unistd.h>
 
-void	ft_putchar(char c)
+int		ft_putchar(char c)
 {
-	write(1, &c, 1);
+	return (write(1, &c, 1));
 }

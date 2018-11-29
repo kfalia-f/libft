@@ -6,48 +6,37 @@
 /*   By: kfalia-f <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/11/24 14:19:15 by kfalia-f          #+#    #+#             */
-/*   Updated: 2018/11/27 19:18:54 by kfalia-f         ###   ########.fr       */
+/*   Updated: 2018/11/28 20:11:38 by kfalia-f         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <stdlib.h>
-
-int		ft_strlen1(char const *s)
-{
-	int i;
-	int k;
-
-	i = 0;
-	k = 0;
-	while (s[i] == ' ' || s[i] == '\t' || s[i] == '\n')
-		i++;
-	k = i;
-	while (s[i] != '\0')
-		i++;
-	while (s[i] == ' ' || s[i] == '\t' || s[i] == '\n')
-		i--;
-	return (i - k - k);
-}
+#include "../includes/libft.h"
 
 char	*ft_strtrim(char const *s)
 {
-	char	*c;
 	int		i;
-	int		k;
+	int		l;
+	char	*a;
 
 	i = 0;
-	k = 0;
-	c = (char *)malloc(sizeof(char) * ft_strlen1(s));
-	if (*c)
-		return (NULL);
-	while (s[i] != '\0')
+	l = ft_strlen(s);
+	while (s[l - 1] == ' ' || s[l - 1] == '\t' || s[l - 1] == '\n')
+		l--;
+	while (s[i] == ' ' || s[i] == '\t' || s[i] == '\n')
 	{
-		while ((s[i] == ' ' || s[i] == '\t' || s[i] == '\n') && k == 0)
-			i++;
-		if (k < ft_strlen1(s))
-			c[k++] = s[i++];
-		else
-			i++;
+		i++;
+		l--;
 	}
-	return (c);
+	if (l < 0)
+		l = 0;
+	a = (char *)malloc(l + 1);
+	if (a == NULL)
+		return (NULL);
+	s += i;
+	i = 0;
+	while (i < l)
+		a[i++] = *s++;
+	a[i] = '\0';
+	return (a);
 }

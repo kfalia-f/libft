@@ -6,14 +6,14 @@
 /*   By: kfalia-f <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/11/27 16:59:03 by kfalia-f          #+#    #+#             */
-/*   Updated: 2018/11/27 17:00:37 by kfalia-f         ###   ########.fr       */
+/*   Updated: 2018/11/28 19:08:18 by kfalia-f         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 int		ft_toupper(int ch)
 {
-	if (ch > 'a' && ch < 'z')
-		return (ch + 32);
+	if (ch >= 'a' && ch <= 'z')
+		return (ch - 32);
 	else
 		return (ch);
 }

@@ -6,7 +6,7 @@
 /*   By: kfalia-f <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/11/27 16:12:22 by kfalia-f          #+#    #+#             */
-/*   Updated: 2018/11/27 17:04:09 by kfalia-f         ###   ########.fr       */
+/*   Updated: 2018/11/28 16:28:31 by kfalia-f         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,6 +20,8 @@ char	*ft_strnstr(char *str, char *to_find, size_t n)
 
 	i = 0;
 	j = 0;
+	if (to_find[0] == '\0')
+		return (str);
 	while ((str[i] != to_find[0]) && (str[i] != '\0'))
 		i++;
 	k = i;

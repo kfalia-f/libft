@@ -6,22 +6,23 @@
 /*   By: kfalia-f <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/11/25 15:20:33 by kfalia-f          #+#    #+#             */
-/*   Updated: 2018/11/25 15:22:28 by kfalia-f         ###   ########.fr       */
+/*   Updated: 2018/11/29 15:10:10 by kfalia-f         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <unistd.h>
+#include "../includes/libft.h"
 
 void	ft_putendl(char const *s)
 {
-	int i;
-
-	i = 0;
-	while (s[i] != '\0')
+	if (s)
 	{
-		write(1, &s[i], 1);
-		i++;
+		ft_putstr(s);
+		ft_putchar('\n');
 	}
-	write(1, &s[i], 1);
-	write(1, "\n", 1);
+}
+
+int main()
+{
+	ft_putendl("abcd");
+	return (0);
 }

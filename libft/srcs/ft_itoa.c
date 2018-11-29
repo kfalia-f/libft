@@ -6,7 +6,7 @@
 /*   By: kfalia-f <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/11/25 15:38:16 by kfalia-f          #+#    #+#             */
-/*   Updated: 2018/11/25 17:05:24 by kfalia-f         ###   ########.fr       */
+/*   Updated: 2018/11/28 20:21:41 by kfalia-f         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,7 +31,7 @@ char	*ft_itoa(int n)
 	s[i++] = '0' + neg * n;
 	if (neg < 0)
 		s[i++] = '-';
-	if ((res = (char *)malloc(sizeof(char) * i)) == NULL)
+	if ((res = (char *)malloc(sizeof(char) * (i + 1))) == NULL)
 		return (NULL);
 	res[i] = '\0';
 	while (i--)

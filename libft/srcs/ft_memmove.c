@@ -6,7 +6,7 @@
 /*   By: kfalia-f <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/11/20 16:56:52 by kfalia-f          #+#    #+#             */
-/*   Updated: 2018/11/27 19:44:25 by kfalia-f         ###   ########.fr       */
+/*   Updated: 2018/11/28 19:02:27 by kfalia-f         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,8 +14,11 @@
 
 void	*ft_memmove(void *dst, const void *src, size_t n)
 {
+	unsigned int	i;
 	unsigned char	s[n];
-	ft_memcpy(s, src, n);
-	ft_memcpy(dst, s, n);
+
+	i = (unsigned int)n;
+	ft_memcpy(s, src, i);
+	ft_memcpy(dst, s, i);
 	return (dst);
 }

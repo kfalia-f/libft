@@ -5,35 +5,36 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: kfalia-f <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2018/11/27 16:22:00 by kfalia-f          #+#    #+#             */
-/*   Updated: 2018/11/27 17:41:54 by kfalia-f         ###   ########.fr       */
+/*   Created: 2018/11/29 15:58:27 by kfalia-f          #+#    #+#             */
+/*   Updated: 2018/11/29 16:08:17 by kfalia-f         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-int		ft_atoi(char *str)
+#include "../includes/libft.h"
+
+int		ft_atoi(const char *s)
 {
-	int res;
-	int i;
+	int				neg;
+	int				i;
+	long long int	n;
+	long long int	k;
 
 	i = 0;
-	res = 0;
-	while ((*str == ' ') || (*str == '\t'))
-		str++;
-	if (*str == '-')
+	n = 0;
+	neg = 0;
+	while (s[i] == ' ' || s[i] == '\n' || s[i] == '\f'
+			|| s[i] == '\t' || s[i] == '\r' || s[i] == '\v')
+		i++;
+	if (s[i] == 45)
+		neg = 1;
+	if (s[i] == 45 || s[i] == 43)
+		i++;
+	while (s[i] >=48 && s[i] <=57)
 	{
-		str++;
-		i = 1;
+		k = n;
+		n *= 10;
+		if (n < k) return (neg == 1 ? 0 : -1);
+		n += ((int)s[i++] - 48);
 	}
-	if (*str == '+')
-		str++;
-	while (*str)
-	{
-		if ((*str < '0') || (*str > '9'))
-			break ;
-		res = res * 10 + (*str - '0');
-		str++;
-	}
-	if (i == 1)
-		res = res * -1;
-	return (res);
+	return (neg == 1 ? -n : n);
 }

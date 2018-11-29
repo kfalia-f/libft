@@ -6,23 +6,20 @@
 /*   By: kfalia-f <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/11/21 13:25:15 by kfalia-f          #+#    #+#             */
-/*   Updated: 2018/11/21 13:53:38 by kfalia-f         ###   ########.fr       */
+/*   Updated: 2018/11/28 19:14:58 by kfalia-f         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <stdlib.h>
+#include "../includes/libft.h"
 
 void	*ft_memalloc(size_t size)
 {
-	char	*a;
+	void	*a;
 
-	if (!size)
+	a = malloc(size);
+	if (a == NULL)
 		return (NULL);
-	a = (char*)malloc(sizeof(char) * size);
-	while (size != 0)
-	{
-		*a++ = '0';
-		size--;
-	}
+	ft_memset(a, 0, size);
 	return (a);
 }
