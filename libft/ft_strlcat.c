@@ -1,37 +1,35 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_putnbr_fd.c                                     :+:      :+:    :+:   */
+/*   ft_strlcat.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: kfalia-f <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2018/11/25 15:32:29 by kfalia-f          #+#    #+#             */
-/*   Updated: 2018/11/29 18:58:15 by kfalia-f         ###   ########.fr       */
+/*   Created: 2018/11/27 15:40:49 by kfalia-f          #+#    #+#             */
+/*   Updated: 2018/11/30 18:37:20 by kfalia-f         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <unistd.h>
-#include "../includes/libft.h"
+#include <stdlib.h>
+#include "libft.h"
 
-void	ft_putnbr_fd(int nb, int fd)
+size_t	ft_strlcat(char *dst, const char *src, size_t size)
 {
-	if (nb == -2147483648)
+	size_t	i;
+	size_t	s1_end;
+
+	i = 0;
+	if (size <= (unsigned long)ft_strlen(dst))
+		return (size + ft_strlen(src));
+	while (dst[i] && i < size)
+		i++;
+	s1_end = i;
+	while (src[i - s1_end] && i < size - 1)
 	{
-		ft_putchar_fd('-', fd);
-		ft_putchar_fd(2 + '0', fd);
-		ft_putnbr_fd(147483648, fd);
+		dst[i] = src[i - s1_end];
+		i++;
 	}
-	else
-	{
-		if (nb < 0)
-		{
-			ft_putchar_fd('-', fd);
-			nb = nb * -1;
-		}
-		if (nb >= 10)
-		{
-			ft_putnbr_fd(nb / 10, fd);
-		}
-		ft_putchar_fd(nb % 10 + '0', fd);
-	}
+	if (s1_end < size)
+		dst[i] = '\0';
+	return (s1_end + ft_strlen(src));
 }

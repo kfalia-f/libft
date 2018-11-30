@@ -1,31 +1,34 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strdup.c                                        :+:      :+:    :+:   */
+/*   ft_strjoin.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: kfalia-f <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2018/11/25 18:59:21 by kfalia-f          #+#    #+#             */
-/*   Updated: 2018/11/29 19:01:44 by kfalia-f         ###   ########.fr       */
+/*   Created: 2018/11/24 13:58:38 by kfalia-f          #+#    #+#             */
+/*   Updated: 2018/11/30 20:45:52 by kfalia-f         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <stdlib.h>
-#include "../includes/libft.h"
+#include "libft.h"
 
-char	*ft_strdup(const char *s)
+char	*ft_strjoin(char const *s1, char const *s2)
 {
-	char	*s1;
-	int		i;
+	char				*s;
+	int					i;
+	unsigned int		k;
 
-	if ((s1 = (char *)malloc(sizeof(char) * (ft_strlen(s) + 1))) == NULL)
+	k = 0;
+	if (!s1 || !s2)
 		return (NULL);
-	i = 0;
-	while (s[i] != '\0')
-	{
-		s1[i] = s[i];
-		i++;
-	}
-	s1[i] = '\0';
-	return (s1);
+	i = ft_strlen(s1) + ft_strlen(s2);
+	if ((s = (char *)malloc(sizeof(s) * (i + 1))) == NULL)
+		return (NULL);
+	while (*s1)
+		s[k++] = *s1++;
+	while (*s2)
+		s[k++] = *s2++;
+	s[k] = '\0';
+	return (s);
 }

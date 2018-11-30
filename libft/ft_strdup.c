@@ -1,22 +1,31 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_putendl.c                                       :+:      :+:    :+:   */
+/*   ft_strdup.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: kfalia-f <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2018/11/25 15:20:33 by kfalia-f          #+#    #+#             */
-/*   Updated: 2018/11/29 18:57:47 by kfalia-f         ###   ########.fr       */
+/*   Created: 2018/11/25 18:59:21 by kfalia-f          #+#    #+#             */
+/*   Updated: 2018/11/30 18:36:50 by kfalia-f         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../includes/libft.h"
+#include <stdlib.h>
+#include "libft.h"
 
-void	ft_putendl(char const *s)
+char	*ft_strdup(const char *s)
 {
-	if (s)
+	char	*s1;
+	int		i;
+
+	if ((s1 = (char *)malloc(sizeof(char) * (ft_strlen(s) + 1))) == NULL)
+		return (NULL);
+	i = 0;
+	while (s[i] != '\0')
 	{
-		ft_putstr(s);
-		ft_putchar('\n');
+		s1[i] = s[i];
+		i++;
 	}
+	s1[i] = '\0';
+	return (s1);
 }

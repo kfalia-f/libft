@@ -1,26 +1,34 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_striteri.c                                      :+:      :+:    :+:   */
+/*   ft_strsub.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: kfalia-f <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2018/11/21 14:18:54 by kfalia-f          #+#    #+#             */
-/*   Updated: 2018/11/21 14:22:17 by kfalia-f         ###   ########.fr       */
+/*   Created: 2018/11/24 13:09:07 by kfalia-f          #+#    #+#             */
+/*   Updated: 2018/11/30 20:44:53 by kfalia-f         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-void	ft_striteri(char *s, void (*f)(unsigned int, char *))
+#include <stdlib.h>
+#include "libft.h"
+
+char	*ft_strsub(char const *s, unsigned int start, size_t len)
 {
-	int i;
+	char		*a;
+	size_t		i;
 
 	i = 0;
-	if (s)
+	if (!s)
+		return (NULL);
+	if (!*s || start > (unsigned int)ft_strlen(s))
+		return (NULL);
+	if ((a = (char *)malloc(sizeof(char) * (len + 1))) == NULL)
+		return (NULL);
+	while (i < len && s[start] != '\0')
 	{
-		while (s[i] != '\0')
-		{
-			f(i, &s[i]);
-			i++;
-		}
+		a[i++] = s[start++];
 	}
+	a[i] = '\0';
+	return (a);
 }

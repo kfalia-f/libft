@@ -1,24 +1,32 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_memmove.c                                       :+:      :+:    :+:   */
+/*   memccpy.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: kfalia-f <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2018/11/20 16:56:52 by kfalia-f          #+#    #+#             */
-/*   Updated: 2018/11/29 18:57:33 by kfalia-f         ###   ########.fr       */
+/*   Created: 2018/11/20 16:39:57 by kfalia-f          #+#    #+#             */
+/*   Updated: 2018/11/30 20:22:00 by kfalia-f         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../includes/libft.h"
+#include <stdlib.h>
 
-void	*ft_memmove(void *dst, const void *src, size_t n)
+void	*ft_memccpy(void *dst, const void *src, int c, size_t n)
 {
-	unsigned int	i;
-	unsigned char	s[n];
+	unsigned char			*a;
+	unsigned char			*b;
+	size_t					i;
 
-	i = (unsigned int)n;
-	ft_memcpy(s, src, i);
-	ft_memcpy(dst, s, i);
-	return (dst);
+	a = (unsigned char *)dst;
+	b = (unsigned char *)src;
+	i = 0;
+	while (i < n)
+	{
+		a[i] = b[i];
+		if (b[i] == (unsigned char)c)
+			return (a + i + 1);
+		i++;
+	}
+	return (NULL);
 }

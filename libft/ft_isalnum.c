@@ -1,32 +1,22 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strjoin.c                                       :+:      :+:    :+:   */
+/*   ft_isalnum.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: kfalia-f <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2018/11/24 13:58:38 by kfalia-f          #+#    #+#             */
-/*   Updated: 2018/11/29 18:59:00 by kfalia-f         ###   ########.fr       */
+/*   Created: 2018/11/27 16:47:14 by kfalia-f          #+#    #+#             */
+/*   Updated: 2018/11/30 18:34:56 by kfalia-f         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <stdlib.h>
-#include "../includes/libft.h"
+#include "libft.h"
 
-char	*ft_strjoin(char const *s1, char const *s2)
+int		ft_isalnum(int ch)
 {
-	char				*s;
-	int					i;
-	unsigned int		k;
-
-	k = 0;
-	i = ft_strlen(s1) + ft_strlen(s2);
-	if ((s = (char *)malloc(sizeof(s) * (i + 1))) == NULL)
-		return (NULL);
-	while (*s1)
-		s[k++] = *s1++;
-	while (*s2)
-		s[k++] = *s2++;
-	s[k] = '\0';
-	return (s);
+	if (ft_isalpha(ch))
+		return (1);
+	if (ft_isdigit(ch))
+		return (1);
+	return (0);
 }

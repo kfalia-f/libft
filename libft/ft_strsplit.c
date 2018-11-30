@@ -6,12 +6,12 @@
 /*   By: kfalia-f <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/11/24 16:26:01 by kfalia-f          #+#    #+#             */
-/*   Updated: 2018/11/29 19:00:15 by kfalia-f         ###   ########.fr       */
+/*   Updated: 2018/11/30 20:46:30 by kfalia-f         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <stdlib.h>
-#include "../includes/libft.h"
+#include "libft.h"
 
 static int		ft_colwr(const char *s, char c)
 {
@@ -53,6 +53,8 @@ char			**ft_strsplit(char const *s, char c)
 	int		nw;
 	int		i;
 
+	if (!s)
+		return (NULL);
 	i = 0;
 	nw = ft_colwr((const char *)s, c);
 	a = (char **)malloc(sizeof(*a) * (ft_colwr((const char *)s, c) + 1));

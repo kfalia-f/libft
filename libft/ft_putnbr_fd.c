@@ -1,31 +1,36 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strcat.c                                        :+:      :+:    :+:   */
+/*   ft_putnbr_fd.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: kfalia-f <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2018/11/27 14:54:20 by kfalia-f          #+#    #+#             */
-/*   Updated: 2018/11/29 18:58:29 by kfalia-f         ###   ########.fr       */
+/*   Created: 2018/11/25 15:32:29 by kfalia-f          #+#    #+#             */
+/*   Updated: 2018/11/30 18:36:22 by kfalia-f         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <stdlib.h>
-#include "../includes/libft.h"
+#include "libft.h"
 
-char	*ft_strcat(char *dst, const char *app)
+void	ft_putnbr_fd(int nb, int fd)
 {
-	int		i;
-	int		k;
-
-	i = 0;
-	k = 0;
-	if (!app && !dst)
-		return (NULL);
-	while (dst[i] != '\0')
-		i++;
-	while (app[k] != '\0')
-		dst[i++] = app[k++];
-	dst[i] = '\0';
-	return (dst);
+	if (nb == -2147483648)
+	{
+		ft_putchar_fd('-', fd);
+		ft_putchar_fd(2 + '0', fd);
+		ft_putnbr_fd(147483648, fd);
+	}
+	else
+	{
+		if (nb < 0)
+		{
+			ft_putchar_fd('-', fd);
+			nb = nb * -1;
+		}
+		if (nb >= 10)
+		{
+			ft_putnbr_fd(nb / 10, fd);
+		}
+		ft_putchar_fd(nb % 10 + '0', fd);
+	}
 }

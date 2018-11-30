@@ -1,34 +1,31 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   memccpy.c                                          :+:      :+:    :+:   */
+/*   ft_strcat.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: kfalia-f <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2018/11/20 16:39:57 by kfalia-f          #+#    #+#             */
-/*   Updated: 2018/11/29 15:44:50 by kfalia-f         ###   ########.fr       */
+/*   Created: 2018/11/27 14:54:20 by kfalia-f          #+#    #+#             */
+/*   Updated: 2018/11/30 18:36:38 by kfalia-f         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <stdlib.h>
+#include "libft.h"
 
-void	*ft_memccpy(void *dst, const void *src, int c, size_t n)
+char	*ft_strcat(char *dst, const char *app)
 {
-	char			*a;
-	char			*b;
-	size_t			i;
+	int		i;
+	int		k;
 
-	if (dst == src || n == 0)
-		return (dst);
-	a = (char *)dst;
-	b = (char *)src;
 	i = 0;
-	while (i < n)
-	{
-		a[i] = b[i];
-		if (b[i] == c)
-			return (a + i + 1);
+	k = 0;
+	if (!app && !dst)
+		return (NULL);
+	while (dst[i] != '\0')
 		i++;
-	}
-	return (NULL);
+	while (app[k] != '\0')
+		dst[i++] = app[k++];
+	dst[i] = '\0';
+	return (dst);
 }

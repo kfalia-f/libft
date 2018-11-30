@@ -1,27 +1,41 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strnew.c                                        :+:      :+:    :+:   */
+/*   ft_memmove.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: kfalia-f <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2018/11/21 13:49:52 by kfalia-f          #+#    #+#             */
-/*   Updated: 2018/11/29 18:59:46 by kfalia-f         ###   ########.fr       */
+/*   Created: 2018/11/20 16:56:52 by kfalia-f          #+#    #+#             */
+/*   Updated: 2018/11/30 20:54:40 by kfalia-f         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <stdlib.h>
-#include "../includes/libft.h"
+#include "libft.h"
 
-char	*ft_strnew(size_t size)
+void	*ft_memmove(void *dst, const void *src, size_t n)
 {
-	char	*a;
+	char	*dst1;
+	char	*src1;
+	int		i;
 
-	if (size == (size_t)(-1))
+	if (!dst && !src)
 		return (NULL);
-	a = (char *)malloc(size + 1);
-	if (a == NULL)
-		return (NULL);
-	ft_memset(a, (int)'\0', size + 1);
-	return (a);
+	dst1 = (char *)dst;
+	src1 = (char *)src;
+	if (!(*dst1) && !(*src1))
+		return (dst1);
+	i = -1;
+	if (dst1 < src1)
+		while (++i < (int)n)
+			dst1[i] = src1[i];
+	else
+	{
+		i = (int)n;
+		while (i >= 0)
+		{
+			dst1[i] = src1[i];
+			i--;
+		}
+	}
+	return (dst);
 }
