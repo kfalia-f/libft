@@ -6,13 +6,15 @@
 /*   By: kfalia-f <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/10/23 19:57:40 by kfalia-f          #+#    #+#             */
-/*   Updated: 2018/11/27 19:14:32 by kfalia-f         ###   ########.fr       */
+/*   Updated: 2018/12/01 16:05:38 by kfalia-f         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-int		ft_strlen(const char *str)
+#include <string.h>
+
+size_t	ft_strlen(const char *str)
 {
-	int k;
+	size_t	k;
 
 	k = 0;
 	while (str[k] != '\0')

@@ -1,32 +1,30 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_memmove.c                                       :+:      :+:    :+:   */
+/*   ft_lstdel.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: kfalia-f <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2018/11/20 16:56:52 by kfalia-f          #+#    #+#             */
-/*   Updated: 2018/12/01 13:51:33 by kfalia-f         ###   ########.fr       */
+/*   Created: 2018/12/01 14:13:17 by kfalia-f          #+#    #+#             */
+/*   Updated: 2018/12/01 14:19:13 by kfalia-f         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-void	*ft_memmove(void *dst, const void *src, size_t n)
+void	ft_lstdel(t_list **alst, void (*del)(void *, size_t))
 {
-	char		*dst1;
-	const char	*src1;
+	t_list	*link;
+	t_list	*temp;
 
-	dst1 = (char *)dst;
-	src1 = (const char *)src;
-	if (src >= dst)
-		dst = ft_memcpy(dst, src, n);
-	else
+	if (!alst || !del)
+		return ;
+	link = *alst;
+	while (link != NULL)
 	{
-		dst1 += n;
-		src1 += n;
-		while (n--)
-			*--dst1 = *--src1;
+		temp = link->next;
+		del(link, link->content_size);
+		link = temp;
 	}
-	return (dst);
+	*alst = NULL;
 }

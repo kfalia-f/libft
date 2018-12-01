@@ -1,32 +1,37 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_memmove.c                                       :+:      :+:    :+:   */
+/*   ft_lstmap.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: kfalia-f <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2018/11/20 16:56:52 by kfalia-f          #+#    #+#             */
-/*   Updated: 2018/12/01 13:51:33 by kfalia-f         ###   ########.fr       */
+/*   Created: 2018/12/01 14:52:34 by kfalia-f          #+#    #+#             */
+/*   Updated: 2018/12/01 15:56:54 by kfalia-f         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-void	*ft_memmove(void *dst, const void *src, size_t n)
+t_list	*ft_lstmap(t_list *lst, t_list *(*f) (t_list *elem))
 {
-	char		*dst1;
-	const char	*src1;
+	t_list	*res;
+	t_list	*h;
+	t_list	*el;
 
-	dst1 = (char *)dst;
-	src1 = (const char *)src;
-	if (src >= dst)
-		dst = ft_memcpy(dst, src, n);
-	else
+	if (!lst || !f)
+		return (NULL);
+	el = f(lst);
+	if (!(res = ft_lstnew(el->content, el->content_size)))
+		return (NULL);
+	lst = lst->next;
+	h = res;
+	while (lst)
 	{
-		dst1 += n;
-		src1 += n;
-		while (n--)
-			*--dst1 = *--src1;
+		el = f(lst);
+		if (!(res->next = ft_lstnew(el->content, el->content_size)))
+			return (NULL);
+		res = res->next;
+		lst = lst->next;
 	}
-	return (dst);
+	return (h);
 }

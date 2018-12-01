@@ -6,7 +6,7 @@
 #    By: kfalia-f <marvin@42.fr>                    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2018/11/20 15:09:14 by kfalia-f          #+#    #+#              #
-#    Updated: 2018/11/30 18:42:54 by kfalia-f         ###   ########.fr        #
+#    Updated: 2018/12/01 15:06:33 by kfalia-f         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -63,7 +63,14 @@ SOURCE =	ft_atoi.c \
 			ft_strsub.c \
 			ft_strtrim.c \
 			ft_tolower.c \
-			ft_toupper.c
+			ft_toupper.c \
+			ft_lstnew.c \
+			ft_lstdelone.c \
+			ft_lstdel.c \
+			ft_lstdel.c \
+			ft_lstiter.c \
+			ft_lstmap.c \
+			ft_lstadd.c
 
 OBJ = $(SOURCE:.c=.o)
 
@@ -76,9 +83,9 @@ $(NAME): $(OBJ)
 	@ar rc $(NAME) $(OBJ)
 
 clean: 
-	@/bin/rm -rf $(OBJ)
+	@rm -rf $(OBJ)
 
 fclean: clean
-	@/bin/rm -rf $(NAME)
+	@rm -rf $(NAME)
 
 re: fclean all
