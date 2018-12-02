@@ -6,7 +6,7 @@
 /*   By: kfalia-f <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/11/24 16:26:01 by kfalia-f          #+#    #+#             */
-/*   Updated: 2018/12/01 16:59:47 by kfalia-f         ###   ########.fr       */
+/*   Updated: 2018/12/02 18:31:34 by kfalia-f         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,16 +47,17 @@ static int		ft_wlen(const char *s, char c)
 	return (l);
 }
 
-static void		ft_del(char **a, int n)
+static void		ft_del(char ***a, int n)
 {
 	int i;
 
 	i = 0;
 	while (i < n)
 	{
-		free(a[i]);
+		free(*a[i]);
 		i++;
 	}
+	free(*a);
 }
 
 char			**ft_strsplit(char const *s, char c)
@@ -78,7 +79,7 @@ char			**ft_strsplit(char const *s, char c)
 			s++;
 		if ((a[i] = ft_strsub(s, 0, ft_wlen(s, c))) == NULL)
 		{
-			ft_del(a, i);
+			ft_del(&a, i);
 			return (NULL);
 		}
 		s = s + ft_wlen(s, c);

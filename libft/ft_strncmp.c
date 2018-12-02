@@ -6,9 +6,11 @@
 /*   By: kfalia-f <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/11/27 16:20:58 by kfalia-f          #+#    #+#             */
-/*   Updated: 2018/12/02 18:10:20 by kfalia-f         ###   ########.fr       */
+/*   Updated: 2018/12/02 18:34:04 by kfalia-f         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
+
+#include <string.h>
 
 int		ft_strncmp(const char *s1, const char *s2, size_t n)
 {
