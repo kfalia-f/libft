@@ -6,11 +6,11 @@
 /*   By: kfalia-f <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/11/27 16:20:58 by kfalia-f          #+#    #+#             */
-/*   Updated: 2018/11/29 18:07:47 by kfalia-f         ###   ########.fr       */
+/*   Updated: 2018/12/02 18:10:20 by kfalia-f         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-int		ft_strncmp(char *s1, char *s2, unsigned int n)
+int		ft_strncmp(const char *s1, const char *s2, size_t n)
 {
 	unsigned int i;
 

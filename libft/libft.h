@@ -6,7 +6,7 @@
 /*   By: kfalia-f <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/11/27 17:40:41 by kfalia-f          #+#    #+#             */
-/*   Updated: 2018/12/02 17:47:40 by kfalia-f         ###   ########.fr       */
+/*   Updated: 2018/12/02 18:11:00 by kfalia-f         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -62,7 +62,7 @@ size_t				ft_strlen(const char *str);
 char				*ft_strmap(char const *s, char (*f)(char));
 char				*ft_strmapi(char const *s, char (*f)(unsigned int, char));
 char				*ft_strncat(char *dst, const char *app, size_t n);
-int					ft_strncmp(const char *s1, const char *s2, unsigned int n);
+int					ft_strncmp(const char *s1, const char *s2, size_t n);
 char				*ft_strncpy(char *dst, const char *src, size_t n);
 int					ft_strnequ(char const *s1, char const *s2, size_t n);
 char				*ft_strnew(size_t size);

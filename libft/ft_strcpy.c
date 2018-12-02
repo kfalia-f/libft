@@ -6,11 +6,11 @@
 /*   By: kfalia-f <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/11/25 18:58:53 by kfalia-f          #+#    #+#             */
-/*   Updated: 2018/11/27 20:06:59 by kfalia-f         ###   ########.fr       */
+/*   Updated: 2018/12/02 18:07:58 by kfalia-f         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-char	*ft_strcpy(char *dest, char *src)
+char	*ft_strcpy(char *dest, const char *src)
 {
 	int i;
 
